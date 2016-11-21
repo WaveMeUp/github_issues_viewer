@@ -1,0 +1,105 @@
+#input_block {
+	margin-bottom: 10px;
+}
+
+.name {
+	height: 25px;
+	padding: 0;
+}
+
+.start {
+	height: 29px;
+	width: 80px;
+	border: none;
+	margin: 0;
+}
+
+.loader {
+	background-image: url(../images/loader.gif);
+	height: 25px;
+    width: 25px;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.repo_input_container {
+	display: inline-block;
+	position: relative;
+}
+
+.repos_list {
+	border: 1px solid black;
+    width: 170px;
+    height: 150px;
+    position: absolute;
+    left: 193px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.repos_list .repo_item {
+	padding: 5px;
+}
+
+.repos_list .repo_item:hover {
+	cursor: pointer;
+}
+
+select {
+	height: 25px;
+}
+
+#issues_block .issue {
+	padding: 10px;
+}
+
+#issues_block .issue:hover {
+	cursor: pointer;
+}
+
+#issues_block .number {
+
+}
+
+#issues_block .created {
+	
+}
+
+#issues_block .title {
+	
+}
+
+#pagination {
+	padding: 10px;
+}
+
+#pagination .bold{
+	font-weight: bold;
+}
+
+#pagination .back, .page_num, .next:hover {
+	cursor: pointer;
+}
+
+#issue .title {
+	font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom: 1px solid black;
+}
+
+#issue .body {
+	padding: 5px;
+}
+
+#issue .by {
+	padding: 5px;
+}
+
+.back {
+	margin-bottom: 10px;
+}
+
+.back:hover {
+	cursor: pointer;
+}

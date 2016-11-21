@@ -1,0 +1,11 @@
+<div class="back" ng-click="goBack()">
+	« Назад
+</div>
+<div id="issue">
+	<div class="title">#{{issue.number}} {{issue.title}} @ {{parseDate(issue.created_at)}}</div>
+	<div class="body">{{issue.body}}</div>
+	<div class="by">
+		<img src="{{issue.user.avatar_url}}" style="width: 50px; height: 50px;">
+		<a href="{{issue.user.html_url}}">{{issue.user.login}}</a>
+	</div>
+</div>

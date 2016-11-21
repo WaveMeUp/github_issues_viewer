@@ -1,0 +1,38 @@
+<form id="input_block">
+	<input class="name" name="username" placeholder="Имя пользователя" type="text" ng-model="username" required> /
+	<input id="ex1" class="name" ng-blur-delay="show_repos = true" ng-change="func.loadData()" ng-model-options='{ debounce: 800 }' ng-focus="func.loadUserRepos()" search-field="name" name="repo_name" placeholder="Репозиторий" list="repos" type="text" ng-model="repo_name" required />
+		<datalist id="repos" ng-model="repo_data" ng-change="selectedRepo()">
+			<option ng-repeat="repo in user_repos" value="{{repo.name}}">{{repo.name}}</option>
+		</datalist>
+	<input class="start" type="submit" value="Найти" ng-click="func.loadData()">
+	<div class="loader" ng-show="loading"></div>
+</form>
+
+<div id="issues_block" ng-show="response.status === 200 && response.data.length > 0">
+	Элементов на странице: <select ng-model="per_page" ng-change="changePerPage()">
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="15">15</option>
+		<option value>Все</option>
+	</select>
+	<div class="issue" ng-repeat="issue in response.data" ng-click="openIssue(issue)">
+		<div class="title">{{issue.title}}</div>
+		<span class="number">#{{issue.number}}</span>
+		<span class="created">@ {{parseDate(issue.created_at)}}</span>
+	</div>
+</div>
+
+<div id="not_found" ng-show="response.status === 200 && response.data.length === 0">
+Обсуждений не найдено
+</div>
+
+<div id="error_block" ng-show="response && response.status != 200">
+	<div>Код ошибки: {{response.status}}</div>
+	<div>Текст: {{response.statusText}}</div>
+</div>
+
+<div id="pagination" ng-show="response.status === 200 && pages && response.data.length > 0">
+	<span class="back" ng-class="{'bold': current_page != 1}" ng-click="nav.back()">« Назад</span>
+	<span class="page_num" ng-repeat="i in range(pages) track by $index" ng-click="nav.change($index + 1)" ng-class="{'bold': current_page === $index + 1}">{{$index + 1}} </span>
+	<span class="next" ng-class="{'bold': current_page != pages}" ng-click="nav.next()">Вперёд »</span>
+</div>
