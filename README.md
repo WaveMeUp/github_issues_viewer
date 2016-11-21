@@ -1,2 +1,3 @@
-# github_issues_viewer
-GitHub issues viewer from selected repo
+# GitHub Issues Viewer
+Просто обсуждений с выбранного репозитория. 
+Демо - http://wavemeup.ru/csssr
